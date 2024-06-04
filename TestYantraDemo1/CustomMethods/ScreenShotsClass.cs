@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TestYantraDemo1.CustomMethods
 {
-    internal class ScreenShotsClass
+    public class ScreenShotsClass
     {
+
     }
 }
