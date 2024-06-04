@@ -27,7 +27,6 @@
     <Folder Include="Configs\" />
     <Folder Include="TestOutput\" />
     <Folder Include="Resources\" />
-    <Folder Include="Tests\" />
   </ItemGroup>
 
 </Project>
