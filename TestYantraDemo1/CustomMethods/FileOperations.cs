@@ -58,5 +58,12 @@ namespace TestYantraDemo1.CustomMethods
             return null;
         }
 
+        // Read data from Excel
+        public static string ReadExcelData()
+        {
+
+            return null;
+        }
+
     }
 }

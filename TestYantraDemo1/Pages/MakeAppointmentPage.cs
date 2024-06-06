@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestYantraDemo1.CustomMethods;
 
 namespace TestYantraDemo1.Pages
 {
@@ -15,7 +16,7 @@ namespace TestYantraDemo1.Pages
             this.driver = driver;
 
         }
-        
+
         public IWebElement MakeAppointmentHeader => driver.FindElement(By.XPath("//h2[text()='Make Appointment']"));
         public IWebElement FacilitySelect => driver.FindElement(By.Id("combo_facility"));
         public IWebElement MadicareProgramRdBtn => driver.FindElement(By.Id("radio_program_medicare"));
@@ -25,7 +26,27 @@ namespace TestYantraDemo1.Pages
 
         public void BookApointment(string facilityName,string programName,string appointmentDate,string message)
         {
+            if (facilityName.Contains("Honkong")){
+                BaseClass.SelectFromDropDownByIndex(FacilitySelect,1);
+            }
+            else if (facilityName.Contains("Seuol"))
+            {
+                BaseClass.SelectFromDropDownByText(FacilitySelect,"Seoul CURA Healthcare Center");
+            }
+            SelectProgram(programName);
+            VisitDateTextField.SendKeys(appointmentDate);
+            CommentsTextArea.SendKeys(message);
+            BookAppointmentBtn.Click();
 
+        }
+
+        public void SelectProgram(string programName)
+        {
+            if (programName.Contains("Medicaid")){
+
+            }else if (programName.Contains("None")){
+
+            }
         }
 
     }
