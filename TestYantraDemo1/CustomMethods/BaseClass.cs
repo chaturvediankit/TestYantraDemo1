@@ -15,6 +15,7 @@ namespace TestYantraDemo1.CustomMethods
 {
     public class BaseClass
     {
+        protected IWebDriver driver;
         //This will launch browser in desired configuration
         public static IWebDriver CreateWebDriver(string browserName)
         {
@@ -44,7 +45,7 @@ namespace TestYantraDemo1.CustomMethods
         private static IWebDriver CreateChromeDriver()
         {
             ChromeOptions options = new ChromeOptions();
-            options.AddArgument("--start-maximized");
+            //options.AddArgument("--start-maximized");
             return new ChromeDriver(options);
 
         }
@@ -77,7 +78,7 @@ namespace TestYantraDemo1.CustomMethods
         }
 
         //Custome method for entering a text in input field
-        public void EnterText(IWebElement element, string value)
+        public static void EnterText(IWebElement element, string value)
         {
             element.Click();
             element.Clear();

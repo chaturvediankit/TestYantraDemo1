@@ -10,7 +10,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Configs\app.runsettings" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Include="Configs\app.runsettings">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EditorConfigFiles>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="ExtentReports" Version="5.0.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="NUnit" Version="3.14.0" />
     <PackageReference Include="NUnit.Analyzers" Version="3.9.0" />
@@ -24,7 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Configs\" />
     <Folder Include="TestOutput\" />
     <Folder Include="Resources\" />
   </ItemGroup>

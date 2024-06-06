@@ -1,10 +1,13 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System.Reflection;
 using System.Text.Json;
+using TestYantraDemo1.CustomMethods;
 
 namespace TestYantraDemo1
 {
-    public class Tests
+    [TestFixture]
+    public class UnitTest
     {
         [SetUp]
         public void Setup()
@@ -14,28 +17,22 @@ namespace TestYantraDemo1
 
         }
 
+
         [Test]
         public void Test1()
         {
-            String jsonContent = File.ReadAllText("AppSetings.json");
-            JsonDocument doc = JsonDocument.Parse(jsonContent);
-            JsonElement root = doc.RootElement;
-
-            String url = root.GetProperty("UatUrl").GetString();
-
-            IWebDriver driver = new ChromeDriver();
             
-            driver.Manage().Window.Maximize();
 
-            driver.Navigate().GoToUrl(url);
+            String url = TestContext.Parameters.Get("url").ToString();
+            Console.WriteLine("Url="+url);
 
-            var element = driver.FindElement(By.XPath("//input[@title='Search for Products, Brands and More']"));
-           
-            element.SendKeys("Shoes");
+            /*
+            IWebDriver driver = BaseClass.CreateWebDriver("chrome");
+            driver.Navigate().GoToUrl("https://www.flipkart.com");
+            ScreenShotsClass.CaptureScreenShot(driver, "TestYantra");
 
-            //driver.Close();
-
-           
+            */
+            
         }
 
     

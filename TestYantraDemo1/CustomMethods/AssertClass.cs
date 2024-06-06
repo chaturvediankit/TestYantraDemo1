@@ -17,7 +17,7 @@ namespace TestYantraDemo1.CustomMethods
         }
 
         // Verify Element is Present 
-        public void AssertElementIsPresent(IWebElement element)
+        public  void AssertElementIsPresent(IWebElement element)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace TestYantraDemo1.CustomMethods
         }
 
         // Checks if element is present, returns true or false
-        public bool IsElementPresent(IWebElement element)
+        public  bool IsElementPresent(IWebElement element)
         {
             try
             {
