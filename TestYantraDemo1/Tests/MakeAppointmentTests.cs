@@ -33,12 +33,13 @@ namespace TestYantraDemo1.Tests
         {
             MakeAppointmentPage makeAppointment = new MakeAppointmentPage(driver);
             makeAppointment.BookApointment("Tokyo", "Medicare", "06/06/2024", "Test yanta appointment");
-            //Assert.IsTrue(assertClass.IsElementPresent(homePage.MakeAppointmentButton));
+            AssertClass assertClass = new AssertClass(driver);
+            Assert.IsTrue(assertClass.IsElementPresent(makeAppointment.ApptConfirmationMessage));
         }
         [Test]
         public void MakeAppointment_Honkong_Medicare()
         {
-
+            
 
         }
         [Test]

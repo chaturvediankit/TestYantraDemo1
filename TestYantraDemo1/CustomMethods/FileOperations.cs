@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExcelDataReader;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -59,10 +60,35 @@ namespace TestYantraDemo1.CustomMethods
         }
 
         // Read data from Excel
-        public static string ReadExcelData()
+        public static string ReadExcelData(string filePath,int row,int col)
         {
+            // Register an encoding provider
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-            return null;
+            // Load Excel file into a FileStream
+            using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
+            {
+                // Create an ExcelDataReader
+                using (var reader = ExcelReaderFactory.CreateReader(stream))
+                {
+                    // Move to the specified row
+                    for (int i = 0; i < row; i++)
+                    {
+                        reader.Read();
+                    }
+
+                    // Move to the specified column
+                    reader.Read(); // Move to the row
+
+                    for (int i = 0; i < col; i++)
+                    {
+                        reader.Read(); // Move to the next cell
+                    }
+
+                    // Read the cell value
+                    return reader.GetValue(col)?.ToString();
+                }
+            }
         }
 
     }

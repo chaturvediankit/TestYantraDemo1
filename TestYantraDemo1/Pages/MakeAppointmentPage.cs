@@ -23,7 +23,7 @@ namespace TestYantraDemo1.Pages
         public IWebElement VisitDateTextField => driver.FindElement(By.Id("txt_visit_date"));
         public IWebElement CommentsTextArea => driver.FindElement(By.Id("txt_comment"));
         public IWebElement BookAppointmentBtn => driver.FindElement(By.Id("btn-book-appointment"));
-
+        public IWebElement ApptConfirmationMessage => driver.FindElement(By.XPath("//h2[text()='Appointment Confirmation']"));
         public void BookApointment(string facilityName,string programName,string appointmentDate,string message)
         {
             if (facilityName.Contains("Honkong")){
