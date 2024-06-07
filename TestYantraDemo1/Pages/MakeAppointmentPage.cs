@@ -29,9 +29,9 @@ namespace TestYantraDemo1.Pages
             if (facilityName.Contains("Honkong")){
                 BaseClass.SelectFromDropDownByIndex(FacilitySelect,1);
             }
-            else if (facilityName.Contains("Seuol"))
+            else if (facilityName.Contains("Seoul"))
             {
-                BaseClass.SelectFromDropDownByText(FacilitySelect,"Seoul CURA Healthcare Center");
+                BaseClass.SelectFromDropDownByValue(FacilitySelect,"Seoul CURA Healthcare Center");
             }
             SelectProgram(programName);
             VisitDateTextField.SendKeys(appointmentDate);

@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using AventStack.ExtentReports;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
@@ -16,6 +17,29 @@ namespace TestYantraDemo1.CustomMethods
     public class BaseClass
     {
         protected IWebDriver driver;
+        protected ExtentReportClass extentReport = new ExtentReportClass();
+
+        [SetUp]
+        public void SetUp()
+        {
+            extentReport.BeforeTest();
+            //Navigate to application
+            String browser = TestContext.Parameters.Get("browser");
+            driver = CreateWebDriver(browser);
+            driver.Manage().Window.Maximize();
+            String url = TestContext.Parameters.Get("url");
+            driver.Navigate().GoToUrl(url);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            //Closing browser and any other session such as database connection etc
+            CloseBrowser(driver);
+            driver.Dispose();
+            extentReport.AfterTest();
+
+        }
         //This will launch browser in desired configuration
         public static IWebDriver CreateWebDriver(string browserName)
         {

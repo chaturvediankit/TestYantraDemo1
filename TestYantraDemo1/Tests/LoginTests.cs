@@ -12,16 +12,7 @@ namespace TestYantraDemo1.Tests
 {
     public class LoginTests:BaseClass
     {
-        [SetUp]
-        public void SetUp()
-        {
-            //Navigate to application
-            String browser = TestContext.Parameters.Get("browser");
-            driver = CreateWebDriver(browser);
-            driver.Manage().Window.Maximize();
-            String url=TestContext.Parameters.Get("url");
-            driver.Navigate().GoToUrl(url);
-        }
+
 
         [Test]
         public void LoginToApplication_Valid()
@@ -30,9 +21,7 @@ namespace TestYantraDemo1.Tests
             homePage.NavigateLoginPage(false);
 
             LoginPage loginPage = new LoginPage(driver);
-            String username= TestContext.Parameters.Get("username");
-            String password = TestContext.Parameters.Get("password");
-            loginPage.LoginApplication(username, password);
+            loginPage.LoginApplication(TestContext.Parameters.Get("username"), TestContext.Parameters.Get("password"));
 
             MakeAppointmentPage makeAppointment = new MakeAppointmentPage(driver);
             AssertClass assertClass = new AssertClass(driver);
@@ -46,10 +35,8 @@ namespace TestYantraDemo1.Tests
             homePage.NavigateLoginPage(true);
 
             LoginPage loginPage = new LoginPage(driver);
-            String username = TestContext.Parameters.Get("username");
-            String password = TestContext.Parameters.Get("password");
-            loginPage.LoginApplication(username, password);
-
+            loginPage.LoginApplication(TestContext.Parameters.Get("username"), TestContext.Parameters.Get("password"));
+            
             MakeAppointmentPage makeAppointment = new MakeAppointmentPage(driver);
             AssertClass assertClass = new AssertClass(driver);
             Assert.IsTrue(assertClass.IsElementPresent(makeAppointment.MakeAppointmentHeader));
@@ -79,27 +66,14 @@ namespace TestYantraDemo1.Tests
             homePage.NavigateLoginPage(false);
 
             LoginPage loginPage = new LoginPage(driver);
-            String username = TestContext.Parameters.Get("username");
-            String password = TestContext.Parameters.Get("password");
-            loginPage.LoginApplication(username, password);
+            loginPage.LoginApplication(TestContext.Parameters.Get("username"), TestContext.Parameters.Get("password"));
+
 
             homePage.LogoutApplication();
             AssertClass assertClass = new AssertClass(driver);
             Assert.IsTrue(assertClass.IsElementPresent(homePage.MakeAppointmentButton));
 
         }
-
-
-        [TearDown]
-        public void TearDown()
-        {
-            //Closing browser and any other session such as database connection etc
-            CloseBrowser(driver);
-
-        }
-
-
-        
 
     }
 }
