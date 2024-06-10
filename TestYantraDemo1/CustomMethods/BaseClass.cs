@@ -34,10 +34,11 @@ namespace TestYantraDemo1.CustomMethods
         [TearDown]
         public void TearDown()
         {
+            extentReport.AfterTest(driver);
             //Closing browser and any other session such as database connection etc
             CloseBrowser(driver);
             driver.Dispose();
-            extentReport.AfterTest();
+            
 
         }
         //This will launch browser in desired configuration

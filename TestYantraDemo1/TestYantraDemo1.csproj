@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <None Remove="Configs\app.runsettings" />
+    <None Remove="Configs\edge.runsettings" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,13 +37,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="TestOutput\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="FinancialSample.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Reports\" />
+    <Folder Include="TestOutput\" />
   </ItemGroup>
 
 </Project>

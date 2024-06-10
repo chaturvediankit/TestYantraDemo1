@@ -13,7 +13,7 @@ namespace TestYantraDemo1.CustomMethods
     public class ScreenShotsClass
     {
         // Take Screen shots
-        public static void CaptureScreenShot(IWebDriver driver, string testName)
+        public static string CaptureScreenShot(IWebDriver driver, string testName)
         {
             try
             {
@@ -29,7 +29,8 @@ namespace TestYantraDemo1.CustomMethods
 
                 // Capture screenshot and save
                 Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
-               screenshot.SaveAsFile(imagePath);
+                screenshot.SaveAsFile(imagePath);
+                return imagePath;
             }
             catch (Exception ex)
             {
@@ -37,6 +38,7 @@ namespace TestYantraDemo1.CustomMethods
                 Assert.Fail();
 
                 // Close Browser
+                return null;
             }
         }
 

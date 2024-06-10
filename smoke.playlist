@@ -1,0 +1,48 @@
+<Playlist Version="2.0">
+  <Rule Name="Includes" Match="Any">
+    <Rule Match="All">
+      <Property Name="Solution" />
+      <Rule Match="Any">
+        <Rule Match="All">
+          <Property Name="Project" Value="TestYantraDemo1" />
+          <Rule Match="Any">
+            <Rule Match="All">
+              <Property Name="Namespace" Value="TestYantraDemo1.Tests" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="LoginTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="TestYantraDemo1.Tests.LoginTests.LoginToApplication_HameburgerMenu_Valid" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="LoginToApplication_HameburgerMenu_Valid" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="TestYantraDemo1.Tests.LoginTests.LoginToApplication_Invalid" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="LoginToApplication_Invalid" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="TestYantraDemo1.Tests.LoginTests.LoginToApplication_Valid" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="LoginToApplication_Valid" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="TestYantraDemo1.Tests.LoginTests.LogoutFromApplication" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="LogoutFromApplication" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+          </Rule>
+        </Rule>
+      </Rule>
+    </Rule>
+  </Rule>
+</Playlist>

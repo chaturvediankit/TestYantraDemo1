@@ -54,6 +54,8 @@ namespace TestYantraDemo1.Tests
             String password = TestContext.Parameters.Get("wrongPassword");
             loginPage.LoginApplication(username, password);
 
+            Assert.Fail("Failed on pupose to show in report");
+
             AssertClass assertClass = new AssertClass(driver);
             Assert.IsTrue(assertClass.IsElementPresent(loginPage.InvalidLoginMessage));
 

@@ -33,7 +33,7 @@ namespace TestYantraDemo1.CustomMethods
             _test = _extent.CreateTest(TestContext.CurrentContext.Test.Name);
         }
 
-        public void AfterTest()
+        public void AfterTest(IWebDriver driver)
         {
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stacktrace = string.IsNullOrEmpty(TestContext.CurrentContext.Result.StackTrace)
@@ -45,7 +45,7 @@ namespace TestYantraDemo1.CustomMethods
                 case TestStatus.Failed:
                     logstatus = Status.Fail;
                     _test.Log(Status.Fail, "Test Failed");
-
+                    _test.AddScreenCaptureFromPath(ScreenShotsClass.CaptureScreenShot(driver, TestContext.CurrentContext.Test.Name));
                     break;
                 case TestStatus.Inconclusive:
                     logstatus = Status.Warning;
